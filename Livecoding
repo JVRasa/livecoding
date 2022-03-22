@@ -1,0 +1,38 @@
+	- Définir les couleurs en variable et bien les utiliser
+	- Créer une class nuit où on l'a redéfinir les couleurs des variables
+
+	- Récupérer le button de l'html
+const btnNight = document.getElementById('btnNight');
+
+	- Créer un écouteur d'événement sur le button, ajouter la class dark
+btnNight.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+	- Sauvegarder les paramètres au clic sur le button
+btnNight.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('darkmode', 'activated');
+});
+
+	- On voit que le paramètre est sauvegarder mais rien ne change lorsqu'on change de page
+	- Ajouter une fonction en début de script qui fera appel à l'objet qu'on vient de sauvegarder 	dans le localStorage
+function theme() {
+  if (localStorage.getItem('nightmode')) {
+    document.body.classList.add('night');
+  }
+}
+
+theme();
+
+On voit que le nightmode reste même lorsqu'on reclique sur le button (comme il est sauvegarder dans le localStorage). Il faut adapter les conditions de l'event listener
+btnNight.addEventListener('click', () => {
+  if (localStorage.getItem('nightmode')) {
+    document.body.classList.remove('night');
+    localStorage.removeItem('nightmode');
+  } else {
+    document.body.classList.toggle('night');
+    localStorage.setItem('nightmode', 'activated');
+  }
+});
+

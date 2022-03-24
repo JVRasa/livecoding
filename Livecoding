@@ -1,5 +1,5 @@
 	- Définir les couleurs en variable et bien les utiliser
-	- Créer une class nuit où on l'a redéfinir les couleurs des variables
+	- Créer une class nuit où on a redéfini les couleurs des variables
 
 	- Récupérer le button de l'html
 const btnNight = document.getElementById('btnNight');
@@ -16,7 +16,7 @@ btnNight.addEventListener('click', () => {
 });
 
 	- On voit que le paramètre est sauvegarder mais rien ne change lorsqu'on change de page
-	- Ajouter une fonction en début de script qui fera appel à l'objet qu'on vient de sauvegarder 	dans le localStorage
+	- Ajouter une fonction en début de script qui fera appel à l'objet qu'on vient de sauvegarder dans le localStorage
 function theme() {
   if (localStorage.getItem('nightmode')) {
     document.body.classList.add('night');

@@ -13,7 +13,7 @@ btnNight.addEventListener('click', () => {
     document.body.classList.remove('night');
     localStorage.removeItem('nightmode');
   } else {
-    document.body.classList.toggle('night');
+    document.body.classList.add('night');
     localStorage.setItem('nightmode', 'activated');
   }
 });
